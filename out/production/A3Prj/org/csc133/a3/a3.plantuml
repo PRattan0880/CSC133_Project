@@ -1,0 +1,813 @@
+@startuml
+
+title __A3's Class Diagram__\n
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.AboutCommand {
+        + AboutCommand()
+        + actionPerformed()
+        + setTarget()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.AccelerateCommand {
+        + AccelerateCommand()
+        + actionPerformed()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.AppMain {
+        - current : Form
+        - theme : Resources
+        + destroy()
+        + init()
+        + start()
+        + stop()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.AttackStrategy {
+        + AttackStrategy()
+        + apply()
+        + attackHeading()
+        + getStrategyType()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.BGSound {
+        - m : Media
+        + BGSound()
+        + pause()
+        + play()
+        + run()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.Bird {
+        - animateBird : Image[]
+        - index : int
+        + Bird()
+        + collidesWith()
+        + draw()
+        + handleCollision()
+        + intersects()
+        + setHeading()
+        + toString()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.BirdCollisionCommand {
+        + BirdCollisionCommand()
+        + actionPerformed()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.BlimpCollisionCommand {
+        + BlimpCollisionCommand()
+        + actionPerformed()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.BrakeCommand {
+        + BrakeCommand()
+        + actionPerformed()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    abstract class org.csc133.a3.Commands {
+        + Commands()
+        {abstract} + actionPerformed()
+        {abstract} + setTarget()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.DamageLevelComponent {
+        {static} + numDigitsShowing : int
+        - damageDigits : Image[]
+        + DamageLevelComponent()
+        + animate()
+        + paint()
+        + setDamageLevel()
+        + setLedColor()
+        # calcPreferredSize()
+        - getDisplayX()
+        - getDisplayY()
+        - setDamageColor()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.DefenseStrategy {
+        - SKYSCRAPER_1 : int
+        - SKYSCRAPER_2 : int
+        + DefenseStrategy()
+        + apply()
+        + getSkyScraper1()
+        + getSkyScraper2()
+        + getStrategyType()
+        - defenseHeading()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    abstract class org.csc133.a3.DigitImageComponent {
+        - animate : boolean
+        - digitImages : Image[]
+        - ledColor : int
+        + DigitImageComponent()
+        + getAnimate()
+        + getComponentWidth()
+        + getDigitHeight()
+        + getDigitImage()
+        + getDigitWidth()
+        + getDisplayComponentWidth()
+        + getDisplayDigitHeight()
+        + getDisplayDigitWidth()
+        + getLedColor()
+        + getScaleFactor()
+        + laidOut()
+        + setAnimate()
+        + setLedColor()
+        + start()
+        + stop()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.ExitCommand {
+        + ExitCommand()
+        + actionPerformed()
+        + setTarget()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    abstract class org.csc133.a3.Fixed {
+        + Fixed()
+        + setLocation()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.FuelLevelComponent {
+        {static} + numDigitsShowing : int
+        - fuelDigits : Image[]
+        + FuelLevelComponent()
+        + animate()
+        + paint()
+        + setFuelLevel()
+        + setLedColor()
+        # calcPreferredSize()
+        - getDisplayX()
+        - getDisplayY()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.Game {
+        - downArrow : Button
+        - gameCommands : Vector<Commands>
+        - isPaused : boolean
+        - leftArrow : Button
+        - rightArrow : Button
+        - timer : UITimer
+        - upArrow : Button
+        + Game()
+        + isPaused()
+        + pauseGame()
+        + resumeGame()
+        + run()
+        - addCommand()
+        - addCommandToLeftSide()
+        - createButton()
+        - scheduleTimer()
+        - setUpGameWorld()
+        - soundCheckBox()
+        - toggleButton()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.GameClockComponent {
+        {static} - MS_COLON_IDK : int
+        - clockDigits : Image[]
+        - colonImage : Image
+        - digitWithDot : Image[]
+        - elapsedTime : long
+        - ledColor2 : int
+        - minutes : int
+        {static} - numDigitsShowing : int
+        - paused : long
+        - seconds : int
+        - start : long
+        - sumOfElapsed : Vector<Integer>
+        - tenthOfSecond : int
+        + GameClockComponent()
+        + animate()
+        + getMinutes()
+        + getSeconds()
+        + getTenthOfSeconds()
+        + paint()
+        + setLedColor()
+        + setPaused()
+        + startElapsedTime()
+        + stopElapsedTime()
+        # calcPreferredSize()
+        - changeTimeColor()
+        - getDisplayX()
+        - getDisplayY()
+        - setCurrentTime()
+        - setResume()
+        - setTime()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    abstract class org.csc133.a3.GameObject {
+        - color : int
+        {static} - gameWorld : GameWorld
+        - location : Point2D
+        - size : int
+        + GameObject()
+        {abstract} + collidesWith()
+        {static} + gameWorldInstance()
+        + getBoundingRectangle()
+        + getColor()
+        + getGameWorld()
+        + getLocation()
+        + getSize()
+        {abstract} + handleCollision()
+        + setColor()
+        + setLocation()
+        + toString()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.GameObjectCollection {
+        - gameCollection : Vector
+        + add()
+        + getElement()
+        + remove()
+        + removeAll()
+        + size()
+        ~ GameObjectCollection()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.GameWorld {
+        {static} - HELIPAD_LOC : Point2D
+        {static} - SKYSCRAPER_LOC1 : Point2D
+        {static} - SKYSCRAPER_LOC2 : Point2D
+        {static} - SKYSCRAPER_LOC3 : Point2D
+        {static} - SKYSCRAPER_LOC4 : Point2D
+        {static} - SKYSCRAPER_LOC5 : Point2D
+        - birdCollision : Vector<GameObject>
+        - blimpCollision : Vector<GameObject>
+        - gameObserver : Vector
+        - helicopterCollision : Vector<GameObject>
+        - lives : int
+        - maxHeight : int
+        - maxWidth : int
+        - maximumDamage : int
+        - nphCollision : Vector<GameObject>
+        - skyScraperCollision : Vector<GameObject>
+        - soundPlaying : boolean
+        - timer : String
+        + accelerate()
+        + addObserver()
+        + birdCollision()
+        + brake()
+        + checkpoint()
+        + checkpoint()
+        + createSound()
+        + displayMap()
+        + draw()
+        + exit()
+        + gameOver()
+        + getHelicopterDamage()
+        + getHelicopterFuelLevel()
+        + getHelicopterHeading()
+        + getLastCheckpoint()
+        + getLives()
+        + getMaximumDamage()
+        + getObjectCollection()
+        + getTimer()
+        + helicopterCollide()
+        + init()
+        + notifyObservers()
+        + playSound()
+        + refuel()
+        + reinitialize()
+        + setElapsedTime()
+        + setMaxHeight()
+        + setMaxWidth()
+        + soundOn()
+        + stopSound()
+        + switchStrategy()
+        + tick()
+        + toggleSound()
+        + turnLeft()
+        + turnRight()
+        - accelerate()
+        - brake()
+        - changeBirdHeading()
+        - changeHeading()
+        - changeInBounds()
+        - checkBoundary()
+        - collision()
+        - collisionDamage()
+        - hasFuel()
+        - hasMaxDamage()
+        - hasReachedLastCheckpoint()
+        - helicopterHasFuel()
+        - inBounds()
+        - randomNumber()
+        - refuelHelicopter()
+        - setLives()
+        - tick()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.GlassCockpit {
+        + GlassCockpit()
+        + getDigitComponent()
+        + getElapsedTime()
+        + update()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.HeadingComponent {
+        {static} + numDigitsShowing : int
+        - headingDigit : Image[]
+        + HeadingComponent()
+        + animate()
+        + paint()
+        + setHeading()
+        + setLedColor()
+        # calcPreferredSize()
+        - getDisplayX()
+        - getDisplayY()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.Helicopter {
+        {static} - NUMBER_OF_FRAMES : int
+        - animateHelicopter : Image[]
+        - damageLevel : int
+        - fuelConsumptionRate : int
+        - fuelLevel : int
+        - index : int
+        - lastSkyScraperReached : int
+        - maximumSpeed : int
+        - myHelicopter : Image
+        - stickAngle : int
+        + Helicopter()
+        + collidesWith()
+        + draw()
+        + getDamageLevel()
+        + getFuelLevel()
+        + getHeight()
+        + getLastSkyScraperReached()
+        + getMaxSpeed()
+        + getStickAngle()
+        + getWidth()
+        + handleCollision()
+        + intersects()
+        + setDamageLevel()
+        + setFuelLevel()
+        + setHeading()
+        + setLastSkyScraperReached()
+        + setRemainingFuel()
+        + toString()
+        + turnLeft()
+        + turnRight()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.Helipad {
+        - helipadImage : Image
+        + Helipad()
+        + collidesWith()
+        + draw()
+        + handleCollision()
+        + toString()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.HelpCommand {
+        + HelpCommand()
+        + actionPerformed()
+        + setTarget()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    interface org.csc133.a3.ICollection {
+        {abstract} + add()
+        {abstract} + getElement()
+        {abstract} + remove()
+        {abstract} + removeAll()
+        {abstract} + size()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    interface org.csc133.a3.ICollider {
+        {abstract} + collidesWith()
+        {abstract} + handleCollision()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    interface org.csc133.a3.IDrawable {
+        {abstract} + draw()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    interface org.csc133.a3.IGameClock {
+        {abstract} + getElapsedTime()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    interface org.csc133.a3.IObservable {
+        {abstract} + addObserver()
+        {abstract} + notifyObservers()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    interface org.csc133.a3.IObserver {
+        {abstract} + update()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    interface org.csc133.a3.ISteerable {
+        {abstract} + turnLeft()
+        {abstract} + turnRight()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    interface org.csc133.a3.IStrategy {
+        {abstract} + apply()
+        {abstract} + getStrategyType()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.LeftTurnCommand {
+        + LeftTurnCommand()
+        + actionPerformed()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.MapView {
+        + MapView()
+        + paint()
+        + start()
+        + stop()
+        + update()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    abstract class org.csc133.a3.Movable {
+        - heading : int
+        - speed : int
+        + Movable()
+        + getHeading()
+        + getSpeed()
+        + move()
+        + setHeading()
+        + setSpeed()
+        + toString()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.NonPlayerHelicopter {
+        - animateNph : Image[]
+        - index : int
+        - nphImage : Image
+        + NonPlayerHelicopter()
+        + collidesWith()
+        + draw()
+        + getStrategy()
+        + handleCollision()
+        + intersects()
+        + invokeStrategy()
+        + setRemainingFuel()
+        + setSpeed()
+        + setStrategy()
+        + toString()
+        + turnLeft()
+        + turnRight()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.NphCollisionCommand {
+        + NphCollisionCommand()
+        + actionPerformed()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.PlayPauseCommand {
+        + PlayPauseCommand()
+        + actionPerformed()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.PlayerHelicopter {
+        {static} - instance : Helicopter
+        {static} + getInstance()
+        {static} + removeInstance()
+        - PlayerHelicopter()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.RaceStrategy {
+        + RaceStrategy()
+        + apply()
+        + getStrategyType()
+        - raceHeading()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.RefuelingBlimp {
+        - blimp : Image
+        - capacity : int
+        - collidedBlimp : Image
+        + RefuelingBlimp()
+        + collidesWith()
+        + draw()
+        + getCapacity()
+        + handleCollision()
+        + intersects()
+        + setCapacity()
+        + toString()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.RightTurnCommand {
+        + RightTurnCommand()
+        + actionPerformed()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.SingleDigitComponent {
+        {static} + numDigitsShowing : int
+        - singleDigit : Image[]
+        + SingleDigitComponent()
+        + animate()
+        + paint()
+        + setLedColor()
+        + setSingleDigit()
+        # calcPreferredSize()
+        - getDisplayX()
+        - getDisplayY()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.SkyScraper {
+        {static} - NUMBER_OF_SKYSCRAPER : int
+        - isReached : boolean
+        - reachedSkyScraper : Image[]
+        - sequenceNumber : int
+        - unreachedSkyScraper : Image[]
+        + SkyScraper()
+        + collidesWith()
+        + draw()
+        + getSequenceNumber()
+        + handleCollision()
+        + intersects()
+        + setReached()
+        + toString()
+        # calcPreferredSize()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.SkyscraperCollisionCommand {
+        + SkyscraperCollisionCommand()
+        + actionPerformed()
+        + setTarget()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.Sound {
+        - m : Media
+        + Sound()
+        + pause()
+        + play()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.SoundCommand {
+        + SoundCommand()
+        + actionPerformed()
+        + setTarget()
+        + setTarget()
+    }
+  }
+  
+
+  namespace org.csc133.a3 {
+    class org.csc133.a3.SwitchStrategyCommand {
+        + SwitchStrategyCommand()
+        + actionPerformed()
+        + setTarget()
+        + setTarget()
+    }
+  }
+  
+
+  org.csc133.a3.AboutCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.AboutCommand o-- org.csc133.a3.Game : game
+  org.csc133.a3.AboutCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.AccelerateCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.AccelerateCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.AttackStrategy .up.|> org.csc133.a3.IStrategy
+  org.csc133.a3.AttackStrategy o-- org.csc133.a3.NonPlayerHelicopter : nphHelicopter
+  org.csc133.a3.AttackStrategy o-- org.csc133.a3.Helicopter : targetHelicopter
+  org.csc133.a3.BGSound .up.|> java.lang.Runnable
+  org.csc133.a3.Bird -up-|> org.csc133.a3.Movable
+  org.csc133.a3.BirdCollisionCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.BirdCollisionCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.BlimpCollisionCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.BlimpCollisionCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.BrakeCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.BrakeCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.Commands -up-|> com.codename1.ui.Command
+  org.csc133.a3.DamageLevelComponent -up-|> org.csc133.a3.DigitImageComponent
+  org.csc133.a3.DefenseStrategy .up.|> org.csc133.a3.IStrategy
+  org.csc133.a3.DefenseStrategy o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.DefenseStrategy o-- org.csc133.a3.NonPlayerHelicopter : nphHelicopter
+  org.csc133.a3.DigitImageComponent -up-|> com.codename1.ui.Component
+  org.csc133.a3.ExitCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.ExitCommand o-- org.csc133.a3.Game : game
+  org.csc133.a3.ExitCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.Fixed -up-|> org.csc133.a3.GameObject
+  org.csc133.a3.FuelLevelComponent -up-|> org.csc133.a3.DigitImageComponent
+  org.csc133.a3.Game .up.|> java.lang.Runnable
+  org.csc133.a3.Game -up-|> com.codename1.ui.Form
+  org.csc133.a3.Game o-- org.csc133.a3.GlassCockpit : glassCockpit
+  org.csc133.a3.Game o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.Game o-- org.csc133.a3.MapView : mapView
+  org.csc133.a3.GameClockComponent -up-|> org.csc133.a3.DigitImageComponent
+  org.csc133.a3.GameObject .up.|> org.csc133.a3.ICollider
+  org.csc133.a3.GameObject .up.|> org.csc133.a3.IDrawable
+  org.csc133.a3.GameObjectCollection .up.|> org.csc133.a3.ICollection
+  org.csc133.a3.GameWorld .up.|> org.csc133.a3.IObservable
+  org.csc133.a3.GameWorld o-- org.csc133.a3.BGSound : backgroundSound
+  org.csc133.a3.GameWorld o-- org.csc133.a3.Sound : birdCrash
+  org.csc133.a3.GameWorld o-- org.csc133.a3.Sound : blimpCrash
+  org.csc133.a3.GameWorld o-- org.csc133.a3.GameObjectCollection : gameObjects
+  org.csc133.a3.GameWorld o-- org.csc133.a3.Sound : heliCheckpoint
+  org.csc133.a3.GameWorld o-- org.csc133.a3.Sound : helicopterCrash
+  org.csc133.a3.GlassCockpit .up.|> org.csc133.a3.IGameClock
+  org.csc133.a3.GlassCockpit .up.|> org.csc133.a3.IObserver
+  org.csc133.a3.GlassCockpit -up-|> com.codename1.ui.Container
+  org.csc133.a3.GlassCockpit o-- org.csc133.a3.DamageLevelComponent : damageLevelComp
+  org.csc133.a3.GlassCockpit o-- org.csc133.a3.FuelLevelComponent : fuelLevelComp
+  org.csc133.a3.GlassCockpit o-- org.csc133.a3.GameClockComponent : gameTimeComp
+  org.csc133.a3.GlassCockpit o-- org.csc133.a3.HeadingComponent : headingComp
+  org.csc133.a3.GlassCockpit o-- org.csc133.a3.SingleDigitComponent : lastComp
+  org.csc133.a3.GlassCockpit o-- org.csc133.a3.SingleDigitComponent : livesComp
+  org.csc133.a3.HeadingComponent -up-|> org.csc133.a3.DigitImageComponent
+  org.csc133.a3.Helicopter .up.|> org.csc133.a3.ISteerable
+  org.csc133.a3.Helicopter -up-|> org.csc133.a3.Movable
+  org.csc133.a3.Helipad -up-|> org.csc133.a3.Fixed
+  org.csc133.a3.HelpCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.HelpCommand o-- org.csc133.a3.Game : game
+  org.csc133.a3.HelpCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.LeftTurnCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.LeftTurnCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.MapView .up.|> org.csc133.a3.IObserver
+  org.csc133.a3.MapView -up-|> com.codename1.ui.Container
+  org.csc133.a3.MapView o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.Movable -up-|> org.csc133.a3.GameObject
+  org.csc133.a3.NonPlayerHelicopter -up-|> org.csc133.a3.Helicopter
+  org.csc133.a3.NonPlayerHelicopter o-- org.csc133.a3.IStrategy : curStrategy
+  org.csc133.a3.NphCollisionCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.NphCollisionCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.PlayPauseCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.PlayPauseCommand o-- org.csc133.a3.Game : game
+  org.csc133.a3.RaceStrategy .up.|> org.csc133.a3.IStrategy
+  org.csc133.a3.RaceStrategy o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.RaceStrategy o-- org.csc133.a3.NonPlayerHelicopter : nphHelicopter
+  org.csc133.a3.RefuelingBlimp -up-|> org.csc133.a3.Fixed
+  org.csc133.a3.RightTurnCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.RightTurnCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.SingleDigitComponent -up-|> org.csc133.a3.DigitImageComponent
+  org.csc133.a3.SkyScraper -up-|> org.csc133.a3.Fixed
+  org.csc133.a3.SkyscraperCollisionCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.SkyscraperCollisionCommand o-- org.csc133.a3.Game : game
+  org.csc133.a3.SkyscraperCollisionCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.SoundCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.SoundCommand o-- org.csc133.a3.Game : game
+  org.csc133.a3.SoundCommand o-- org.csc133.a3.GameWorld : gw
+  org.csc133.a3.SwitchStrategyCommand -up-|> org.csc133.a3.Commands
+  org.csc133.a3.SwitchStrategyCommand o-- org.csc133.a3.Game : game
+  org.csc133.a3.SwitchStrategyCommand o-- org.csc133.a3.GameWorld : gw
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
